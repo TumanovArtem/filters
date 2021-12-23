@@ -1,0 +1,40 @@
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    width: 1200px;
+    margin: 15px auto;
+}
+
+.content {
+    display: flex;
+}
+
+.content > * {
+    width: 50%;
+    border: 1px solid #eee;
+}
+
+.content li {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.content-list {
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+}
