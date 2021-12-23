@@ -6,8 +6,8 @@ import {
     PersonEyeColorEnum,
     PersonGenderEnum,
     PersonHairColorEnum,
-} from '../../../../constants/personConstants';
-import { PersonFilterType } from '../../../../types/entityTypes';
+} from 'constants/personConstants';
+import { PersonFilterType } from 'types/entityTypes';
 
 const { Option } = Select;
 
@@ -38,10 +38,7 @@ export const PersonFields = ({ handleChange }: PersonFieldsPropsType) => {
                                 keyof typeof PersonHairColorEnum
                             >
                         ).map((key) => (
-                            <Option
-                                key={uuid()}
-                                value={PersonHairColorEnum[key]}
-                            >
+                            <Option key={uuid()} value={PersonHairColorEnum[key]}>
                                 {PersonHairColorEnum[key]}
                             </Option>
                         ))}
@@ -56,10 +53,7 @@ export const PersonFields = ({ handleChange }: PersonFieldsPropsType) => {
                                 keyof typeof PersonEyeColorEnum
                             >
                         ).map((key) => (
-                            <Option
-                                key={uuid()}
-                                value={PersonEyeColorEnum[key]}
-                            >
+                            <Option key={uuid()} value={PersonEyeColorEnum[key]}>
                                 {PersonEyeColorEnum[key]}
                             </Option>
                         ))}
@@ -70,9 +64,7 @@ export const PersonFields = ({ handleChange }: PersonFieldsPropsType) => {
                 <Form.Item label="Gender">
                     <Select>
                         {(
-                            Object.keys(PersonGenderEnum) as Array<
-                                keyof typeof PersonGenderEnum
-                            >
+                            Object.keys(PersonGenderEnum) as Array<keyof typeof PersonGenderEnum>
                         ).map((key) => (
                             <Option key={uuid()} value={PersonGenderEnum[key]}>
                                 {PersonGenderEnum[key]}

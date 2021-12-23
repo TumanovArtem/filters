@@ -1,9 +1,9 @@
-import { EntityTypeEnum } from '../constants/entityConstants';
+import { EntityTypeEnum } from 'constants/entityConstants';
 import {
     PersonEyeColorEnum,
     PersonGenderEnum,
     PersonHairColorEnum,
-} from '../constants/personConstants';
+} from 'constants/personConstants';
 
 export type EntityType = {
     type: EntityTypeEnum;

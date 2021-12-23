@@ -4,6 +4,7 @@ export enum PersonHairColorEnum {
     GREY = 'grey',
     BLACK = 'black',
 }
+
 export enum PersonEyeColorEnum {
     BROWN = 'brown',
     RED = 'red',

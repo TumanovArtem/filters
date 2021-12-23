@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { useAppSelector } from 'hooks/reduxHooks';
 import { v4 as uuid } from 'uuid';
 
-import { useAppSelector } from '../../hooks/reduxHooks';
-import { selectEntityFilteredData } from '../../store/slices/entitySlice';
-import { EntityDataType } from '../../types/entityTypes';
+import { selectEntityFilteredData } from 'store/slices/entitySlice';
+import { EntityDataType } from 'types/entityTypes';
 
 export const Content = () => {
     const filteredData = useAppSelector(selectEntityFilteredData);
@@ -24,11 +24,7 @@ export const Content = () => {
             )}
             <ul className="details">
                 {currentEntity &&
-                    (
-                        Object.keys(currentEntity) as Array<
-                            keyof EntityDataType
-                        >
-                    ).map((key) => (
+                    (Object.keys(currentEntity) as Array<keyof EntityDataType>).map((key) => (
                         <li key={uuid()}>{`${key}: ${currentEntity[key]}`}</li>
                     ))}
             </ul>

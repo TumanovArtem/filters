@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Col, Form, Input, Row, Select } from 'antd';
 import { v4 as uuid } from 'uuid';
 
-import { EntityTypeEnum } from '../../constants/entityConstants';
-import { filterEntity } from '../../store/slices/entitySlice';
-import { EntityFilterType, PersonFilterType } from '../../types/entityTypes';
-import { useAppDispatch } from '../../hooks/reduxHooks';
+import { EntityTypeEnum } from 'constants/entityConstants';
+import { useAppDispatch } from 'hooks/reduxHooks';
+import { filterEntity } from 'store/slices/entitySlice';
+import { EntityFilterType, PersonFilterType } from 'types/entityTypes';
+
 import { UniqueFields } from './UniqueFields';
 
 const { Option } = Select;

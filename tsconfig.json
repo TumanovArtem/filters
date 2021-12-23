@@ -6,6 +6,14 @@
     "jsx": "react",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "constants/*": ["constants/*"],
+      "hooks/*": ["hooks/*"],
+      "store/*": ["store/*"],
+      "types/*": ["types/*"]
+    }
   }
 }
