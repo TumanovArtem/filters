@@ -4,7 +4,7 @@ import axios, { AxiosResponse } from 'axios';
 import { EntityTypeEnum } from 'constants/entityConstants';
 import { EntityDataType, EntityFilterType, Person, Planet, Starship } from 'types/entityTypes';
 import { BASE_URL } from 'constants/urls';
-import { RootState } from 'store/index';
+import { RootState } from 'store/store';
 
 type EntityState = {
     data: EntityDataType[];

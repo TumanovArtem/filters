@@ -19,11 +19,8 @@ const entityFilterInitialState: EntityFilterType = {
 export const HeaderForm = () => {
     const dispatch = useAppDispatch();
 
-    const [entityFilter, setEntityFilter] = useState<EntityFilterType>(
-        entityFilterInitialState
-    );
-    const [isUniqueFieldShown, setIsUniqueFieldShown] =
-        useState<boolean>(false);
+    const [entityFilter, setEntityFilter] = useState<EntityFilterType>(entityFilterInitialState);
+    const [isUniqueFieldShown, setIsUniqueFieldShown] = useState<boolean>(false);
 
     const handleNameFilterChange = (e: React.ChangeEvent<HTMLInputElement>) =>
         setEntityFilter((prev) => ({ ...prev, name: e.target.value }));
@@ -41,9 +38,7 @@ export const HeaderForm = () => {
     }, [entityFilter]);
 
     useEffect(() => {
-        entityFilter.type.length === 1
-            ? setIsUniqueFieldShown(true)
-            : setIsUniqueFieldShown(false);
+        entityFilter.type.length === 1 ? setIsUniqueFieldShown(true) : setIsUniqueFieldShown(false);
     }, [entityFilter.type]);
 
     return (
@@ -56,20 +51,11 @@ export const HeaderForm = () => {
                 </Col>
                 <Col span={12}>
                     <Form.Item label="Type">
-                        <Select
-                            mode="multiple"
-                            allowClear
-                            onChange={handleTypeFilterChange}
-                        >
+                        <Select mode="multiple" allowClear onChange={handleTypeFilterChange}>
                             {(
-                                Object.keys(EntityTypeEnum) as Array<
-                                    keyof typeof EntityTypeEnum
-                                >
+                                Object.keys(EntityTypeEnum) as Array<keyof typeof EntityTypeEnum>
                             ).map((key) => (
-                                <Option
-                                    key={uuid()}
-                                    value={EntityTypeEnum[key]}
-                                >
+                                <Option key={uuid()} value={EntityTypeEnum[key]}>
                                     {EntityTypeEnum[key]}
                                 </Option>
                             ))}

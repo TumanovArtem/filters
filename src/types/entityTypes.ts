@@ -64,7 +64,6 @@ export type EntityDataType = Person | Planet | Starship;
 export type EntityFilterType = {
     name: string;
     type: EntityTypeEnum[];
-
     personFilter?: PersonFilterType;
 };
 

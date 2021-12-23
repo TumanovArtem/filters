@@ -1,12 +1,15 @@
-import { EntityTypeEnum } from 'constants/entityConstants';
-import { PersonFields } from './PersonFields';
 import React from 'react';
+
+import { EntityTypeEnum } from 'constants/entityConstants';
 import { PersonFilterType } from 'types/entityTypes';
+
+import { PersonFields } from './PersonFields';
 
 export type UniqueFieldsPropsType = {
     type: EntityTypeEnum;
     handlePersonFilterChange: (personFilter: PersonFilterType) => void;
 };
+
 export const UniqueFields = ({ type, handlePersonFilterChange }: UniqueFieldsPropsType) => {
     switch (type) {
         case EntityTypeEnum.PERSON:
