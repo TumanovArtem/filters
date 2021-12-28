@@ -13,9 +13,11 @@ module.exports = {
         alias: {
             components: path.resolve(__dirname, 'src/components'),
             constants: path.resolve(__dirname, 'src/constants'),
+            helpers: path.resolve(__dirname, 'src/helpers'),
             hooks: path.resolve(__dirname, 'src/hooks/'),
             store: path.resolve(__dirname, 'src/store'),
             types: path.resolve(__dirname, 'src/types'),
+            hoc: path.resolve(__dirname, 'src/hoc'),
         },
     },
     module: {

@@ -3,7 +3,7 @@
     "outDir": "./dist",
     "target": "es5",
     "module": "es6",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
@@ -11,9 +11,11 @@
     "paths": {
       "components/*": ["components/*"],
       "constants/*": ["constants/*"],
+      "helpers/*": ["helpers/*"],
       "hooks/*": ["hooks/*"],
       "store/*": ["store/*"],
-      "types/*": ["types/*"]
+      "types/*": ["types/*"],
+      "hoc/*": ["hoc/*"],
     }
   }
 }

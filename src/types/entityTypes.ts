@@ -9,11 +9,12 @@ export type EntityType = {
     type: EntityTypeEnum;
     name: string;
     url: string;
+    imgUrl: string;
     created: string;
     edited: string;
 };
 
-export type Person = {
+export type PersonType = {
     height: string;
     mass: string;
     hair_color: PersonHairColorEnum;
@@ -28,7 +29,7 @@ export type Person = {
     vehicles: string[];
 } & EntityType;
 
-export type Planet = {
+export type PlanetType = {
     diameter: string;
     rotation_period: string;
     orbital_period: string;
@@ -42,7 +43,7 @@ export type Planet = {
     pilots: string[];
 } & EntityType;
 
-export type Starship = {
+export type StarshipType = {
     model: string;
     starship_class: string;
     manufacturer: string;
@@ -59,7 +60,7 @@ export type Starship = {
     pilots: string[];
 } & EntityType;
 
-export type EntityDataType = Person | Planet | Starship;
+export type EntityDataType = PersonType | PlanetType | StarshipType;
 
 export type EntityFilterType = {
     name: string;
@@ -70,4 +71,5 @@ export type EntityFilterType = {
 export type PersonFilterType = {
     hair_color?: PersonHairColorEnum;
     eye_color?: PersonEyeColorEnum;
+    gender?: PersonGenderEnum;
 };

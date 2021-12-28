@@ -33,6 +33,15 @@ li {
     cursor: pointer;
 }
 
+.img-wrapper {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.img-wrapper img {
+    max-height: 300px;
+}
+
 @media (max-width: 1200px) {
     .container {
         width: 100%;

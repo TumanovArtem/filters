@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { v4 as uuid } from 'uuid';
+import { useContext } from 'react';
 import { Col, Form, Row, Select } from 'antd';
 
 import {
@@ -7,39 +6,34 @@ import {
     PersonGenderEnum,
     PersonHairColorEnum,
 } from 'constants/personConstants';
-import { PersonFilterType } from 'types/entityTypes';
+import { EntityFilterContext } from 'hoc/EntityFilterContextProvider';
 
 const { Option } = Select;
 
-type PersonFieldsPropsType = {
-    handleChange: (personFilter: PersonFilterType) => void;
-};
-
-export const PersonFields = ({ handleChange }: PersonFieldsPropsType) => {
-    const [personFilter, setPersonFilter] = useState<PersonFilterType>({});
+export const PersonFields = () => {
+    const { personFilter, setFilter } = useContext(EntityFilterContext);
 
     const handlePersonHairChange = (hair_color: PersonHairColorEnum) =>
-        setPersonFilter((prev) => ({ ...prev, hair_color }));
+        setFilter((prev) => ({ ...prev, personFilter: { ...prev.personFilter, hair_color } }));
 
     const handleEyeColorChange = (eye_color: PersonEyeColorEnum) =>
-        setPersonFilter((prev) => ({ ...prev, eye_color }));
+        setFilter((prev) => ({ ...prev, personFilter: { ...prev.personFilter, eye_color } }));
 
-    useEffect(() => {
-        handleChange(personFilter);
-    }, [personFilter]);
+    const handleGenderChange = (gender: PersonGenderEnum) => {
+        setFilter((prev) => ({ ...prev, personFilter: { ...prev.personFilter, gender } }));
+    };
 
     return (
         <Row gutter={24}>
             <Col span={8}>
                 <Form.Item label="Hair color">
-                    <Select onChange={handlePersonHairChange}>
-                        {(
-                            Object.keys(PersonHairColorEnum) as Array<
-                                keyof typeof PersonHairColorEnum
-                            >
-                        ).map((key) => (
-                            <Option key={uuid()} value={PersonHairColorEnum[key]}>
-                                {PersonHairColorEnum[key]}
+                    <Select
+                        onChange={handlePersonHairChange}
+                        defaultValue={personFilter.hair_color}
+                    >
+                        {Object.values(PersonHairColorEnum).map((hairColor) => (
+                            <Option key={hairColor} value={hairColor}>
+                                {hairColor}
                             </Option>
                         ))}
                     </Select>
@@ -47,14 +41,10 @@ export const PersonFields = ({ handleChange }: PersonFieldsPropsType) => {
             </Col>
             <Col span={8}>
                 <Form.Item label="Eye color">
-                    <Select onChange={handleEyeColorChange}>
-                        {(
-                            Object.keys(PersonEyeColorEnum) as Array<
-                                keyof typeof PersonEyeColorEnum
-                            >
-                        ).map((key) => (
-                            <Option key={uuid()} value={PersonEyeColorEnum[key]}>
-                                {PersonEyeColorEnum[key]}
+                    <Select onChange={handleEyeColorChange} defaultValue={personFilter.eye_color}>
+                        {Object.values(PersonEyeColorEnum).map((eyeColor) => (
+                            <Option key={eyeColor} value={eyeColor}>
+                                {eyeColor}
                             </Option>
                         ))}
                     </Select>
@@ -62,12 +52,10 @@ export const PersonFields = ({ handleChange }: PersonFieldsPropsType) => {
             </Col>
             <Col span={8}>
                 <Form.Item label="Gender">
-                    <Select>
-                        {(
-                            Object.keys(PersonGenderEnum) as Array<keyof typeof PersonGenderEnum>
-                        ).map((key) => (
-                            <Option key={uuid()} value={PersonGenderEnum[key]}>
-                                {PersonGenderEnum[key]}
+                    <Select onChange={handleGenderChange} defaultValue={personFilter.gender}>
+                        {Object.values(PersonGenderEnum).map((gender) => (
+                            <Option key={gender} value={gender}>
+                                {gender}
                             </Option>
                         ))}
                     </Select>
